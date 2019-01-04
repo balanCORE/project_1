@@ -6,6 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,700");
 html {
   line-height: 1.15;
   /* 1 */
@@ -304,6 +305,24 @@ template {
 [hidden] {
   display: none; }
 
+@font-face {
+  font-family: 'Glyphter';
+  src: url("../fonts/Glyphter.eot");
+  src: url("../fonts/Glyphter.eot?#iefix") format("embedded-opentype"), url("../fonts/Glyphter.woff") format("woff"), url("../fonts/Glyphter.ttf") format("truetype"), url("../fonts/Glyphter.svg#Glyphter") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class*='icon-']:before {
+  display: inline-block;
+  font-family: 'Glyphter';
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+* {
+  font-family: "Roboto"; }
+
 .navBar {
   position: fixed;
   top: 0;
@@ -339,14 +358,35 @@ template {
       height: .15em;
       border-top: 0.45em double #999999;
       border-bottom: 0.15em solid #999999; }
-  .navBar .navMain ul {
-    list-style: none;
+  .navBar .navMain {
     padding: 0; }
-    .navBar .navMain ul li {
-      display: block;
-      height: 3em;
-      margin: 0;
+    .navBar .navMain .dataList {
+      list-style: none;
       padding: 0; }
+      .navBar .navMain .dataList li {
+        display: block;
+        height: 3em;
+        width: inherit;
+        margin: 0;
+        padding: 0 1.5em; }
+        .navBar .navMain .dataList li a {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          height: inherit;
+          width: 100%;
+          color: #999999;
+          text-decoration: none; }
+          .navBar .navMain .dataList li a .icon {
+            font-family: 'Glyphter';
+            margin-right: .5em; }
+      .navBar .navMain .dataList li:hover {
+        background-color: #999999;
+        border-left: 3px solid orange; }
+        .navBar .navMain .dataList li:hover a {
+          margin-left: -3px;
+          color: #fff; }
   .navBar .navActive {
     border-top: 1px solid #999999; }
     .navBar .navActive ul {
@@ -363,7 +403,7 @@ header {
   max-width: 1250px;
   margin-left: 190px;
   border-bottom: 1px solid #999999; }
-  header ul {
+  header .infoData {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: end;
@@ -372,18 +412,84 @@ header {
     padding: 0;
     margin: 0;
     width: 100%; }
-    header ul li {
-      display: block;
+    header .infoData li {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center;
       height: 60px;
       border-left: 1px solid #999999; }
-    header ul li:nth-child(even) {
-      width: 50px; }
+      header .infoData li .icon {
+        font-family: 'Glyphter'; }
+    header .infoData li:nth-child(even) {
+      width: 60px; }
+    header .infoData li:nth-child(odd) {
+      padding: 0 1.5em; }
 
 main {
+  color: #999999;
   max-width: 1250px;
   margin-left: 190px;
   padding: 1.5em;
   background-color: #f5f5f2; }
   main .statistics {
-    background: #FFF;
-    padding: 10em; }
+    background: #FFF; }
+    main .statistics .headerStat {
+      padding: 1.5em; }
+      main .statistics .headerStat p {
+        margin: 0;
+        font-size: 1.5em;
+        text-transform: uppercase; }
+    main .statistics .dataStat {
+      border-top: 2px solid #f5f5f2;
+      border-bottom: 2px solid #f5f5f2;
+      padding: 1em; }
+    main .statistics .mainStat {
+      height: 10vh; }
+  main .links {
+    margin-top: 1.5em;
+    background: #FFF; }
+    main .links .headerLinks {
+      padding: 1.5em;
+      border-bottom: 2px solid #f5f5f2; }
+      main .links .headerLinks p {
+        margin: 0;
+        font-size: 1.5em;
+        text-transform: uppercase; }
+    main .links .linkContainer {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-align: center;
+          align-items: center;
+      padding: 1.5em; }
+      main .links .linkContainer button {
+        color: #FFF;
+        padding: .5em;
+        width: 7em;
+        background-color: #f58220;
+        border: none;
+        border-radius: 5px;
+        display: inline-block; }
+      main .links .linkContainer .linksBox {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        margin: 1.5em 0; }
+        main .links .linkContainer .linksBox .linkItem {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+          -ms-flex-align: center;
+              align-items: center;
+          min-width: 30vw;
+          border-bottom: 2px solid #f5f5f2; }
+        main .links .linkContainer .linksBox .linkItem:first-child {
+          border-top: 2px solid #f5f5f2; }

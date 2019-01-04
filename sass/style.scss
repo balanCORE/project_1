@@ -1,10 +1,27 @@
-// import 
+//  files
 @import "normalize";
+@import "glyphter";
+// fonts
 @import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,700');
 // colors
 $black: rgb(25,25,25);
 $grey-font: rgb(153,153,153);
 $grey-back: rgb(245,245,242);
+$orange-button: rgb(245,130,32);
+// mixins
+@mixin headerP {
+	margin: 0;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+@mixin icons {
+	
+
+}
+* {
+	font-family: "Roboto";
+}
 
 // Side Menu
 .navBar {
@@ -46,15 +63,39 @@ $grey-back: rgb(245,245,242);
 		}
 	}
 	.navMain {
-	
-		ul {
+		padding: 0;
+		.dataList {
 			list-style: none;
 			padding: 0;
 			li {
 				display: block;
 				height: 3em;
+				width: inherit;
 				margin: 0;
-				padding: 0;
+				padding: 0 1.5em;
+				a {
+					display: flex;
+					align-items: center;
+					height: inherit;
+					width: 100%;
+					color: $grey-font;
+					text-decoration: none;
+					.icon {
+						font-family: 'Glyphter';
+						margin-right: .5em;
+					}
+					
+				}
+				
+				
+			}
+			li:hover {
+				background-color: $grey-font;  //TEMPORARY!!!!!!!!!!!
+				border-left: 3px solid orange;
+				a {
+					margin-left: -3px;
+					color: #fff;
+				}
 			}
 		}
 	}
@@ -80,7 +121,7 @@ header {
 	max-width: 1250px;
 	margin-left: 190px;
 	border-bottom: 1px solid $grey-font;
-	ul {
+	.infoData {
 		display: flex;
 		justify-content: flex-end;	
 		list-style: none;
@@ -88,25 +129,90 @@ header {
 		margin: 0;
 		width: 100%;
 		li {
-			display: block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			height: 60px;
 			border-left: 1px solid $grey-font;
+			.icon {
+				font-family: 'Glyphter';
+			}
 		}
 		li:nth-child(even) {
-			width: 50px;
+			width: 60px;
+		}
+		li:nth-child(odd) {
+			padding: 0 1.5em;
 		}
 	}
 }
 //Main
 	main {
+		color: $grey-font;
 		max-width: 1250px;
 		margin-left: 190px;
 		padding: 1.5em;
 		background-color: $grey-back;
 		.statistics {
 			background: #FFF;
-			padding: 10em; // TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			.headerStat {
+				padding: 1.5em;
+				p {
+					@include headerP;
+				}
+			}
+			.dataStat {
+				border-top: 2px solid $grey-back;
+				border-bottom: 2px solid $grey-back;
+				padding: 1em; // TEMPORARY!!!!!!!!!!!!!!!!!!!!!
+			}
+			.mainStat {
+				height: 10vh;  // TEMPORARY!!!!!!!!!!!!!!!!!!!!!
+			}
 		}
+		.links {
+			margin-top: 1.5em;
+			background: #FFF;
+			.headerLinks{
+				padding: 1.5em;
+				border-bottom: 2px solid $grey-back;
+				p {
+					@include headerP;
+				}
+			}
+			.linkContainer {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 1.5em;
+				button {
+					color: #FFF;
+					padding: .5em;
+					width: 7em;
+					background-color: $orange-button;
+					border: none;
+					border-radius: 5px;
+					display: inline-block;
+				}
+				.linksBox {
+					display: flex;
+					justify-content: center;
+					flex-direction: column;
+					margin: 1.5em 0;
+					.linkItem {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						min-width: 30vw;
+						border-bottom: 2px solid $grey-back;
+					}
+					.linkItem:first-child {
+						border-top: 2px solid $grey-back;
+					}
+				}
+			}
+		}
+
 	}
 
 
