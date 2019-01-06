@@ -397,6 +397,8 @@ template {
         text-transform: uppercase; }
       .navBar .navActive ul li {
         color: blue; }
+        .navBar .navActive ul li .person {
+          color: #56819f; }
 
 header {
   height: 60px;
@@ -444,8 +446,16 @@ main {
         text-transform: uppercase; }
     main .statistics .dataStat {
       border-top: 2px solid #f5f5f2;
-      border-bottom: 2px solid #f5f5f2;
-      padding: 1em; }
+      border-bottom: 2px solid #f5f5f2; }
+      main .statistics .dataStat .form-cal {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+            justify-content: center;
+        border: 2px solid #999999;
+        padding: .5em 0; }
+      main .statistics .dataStat .ui-datepicker {
+        background: blue; }
     main .statistics .mainStat {
       height: 10vh; }
   main .links {
