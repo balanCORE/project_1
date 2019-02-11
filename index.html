@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="css/style.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<script src="js/script.js"></script>
+  	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
 </head>
 <body>
 <!-- Navbar left side -->
 	<nav class="navBar">
 		<div class="navHeader">
-			<div class="logo">Just do it</div>
+			<img src="images/logo.svg" alt="LOGO">
 			<div class="btn_menu">
 				<div class="hamburger"></div>
 			</div>
@@ -53,11 +53,60 @@
 			</div>
 			<div class="dataStat">
 				<div class="form-cal">
-					<input type="text" id="datepicker">
-					<input type="text" id="datapicker" name="to">
+					<form action="">
+						<input id="date-form" type="date" style="background: none;">
+						<input type="date" id="date-form">
+					</form>
+					<button id="date-refresh">X</button>
 				</div>
 			</div>
 			<div class="mainStat">
+				<div class="flex">
+
+					<div class="flex-row">
+						<div class="flex-column"> <!-- flex column -->
+							<div class="flex-sp-b2">
+								<p>Visit Signups</p>
+								<p>124</p>
+							</div>
+							<div class="flex-sp-b2">
+								<p>FTD</p>
+								<p>445</p>
+							</div>
+						</div>
+						<div class="flex-column">
+							<div class="flex-sp-b2">
+								<p>Net deposit</p>
+								<p>564</p>
+							</div>
+							<div class="flex-sp-b2">
+								<p>Turn over</p>
+								<p>432</p>
+							</div>
+						</div>
+					</div>
+					<!-- earnings -->
+					<div>
+						<p>Earning chart</p>
+					</div>
+					<div class="flex-row flex-center">
+						<div class="chart-box">
+							<div class="chart-dot blue"></div>
+							<p>Signups</p>
+						</div>
+						<div class="chart-box">
+							<div class="chart-dot orange"></div>
+							<p>FTD</p>
+						</div>
+						<div class="chart-box">
+							<div class="chart-dot green"></div>
+							<p>Earned</p>
+						</div>
+					</div>
+					<div id="myDiv">
+						
+					</div>
+				</div>
 				
 			</div>
 		</section>

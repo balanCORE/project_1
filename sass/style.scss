@@ -26,11 +26,12 @@ $blue-manager: #56819f;
 // Side Menu
 .navBar {
 	position: fixed;
+	z-index: 10;
 	top: 0;
 	left: 0;
 	background-color: $black;
 	width: 190px;
-	height: auto;
+	height: 100vh;
 	color: $grey-font;
 	[class*="nav"] {
 		padding: 0 1.5em;
@@ -42,11 +43,7 @@ $blue-manager: #56819f;
 		justify-content: space-between;
 		align-items: center;
 		.logo {
-			font-family: 'Lobster', cursive;
-			color: rgb(255,255,255);
-			font-size: 1.5em;
-			line-height: 2em;
-			width: 4em;	
+			
 		}
 		.hamburger {
 			position: relative;
@@ -120,8 +117,11 @@ $blue-manager: #56819f;
 
 // header 
 header {
+	position: fixed;
+	background-color: #fff;
+	right: 0;
 	height: 60px;
-	max-width: 1250px;
+	width: 100vw;
 	margin-left: 190px;
 	border-bottom: 1px solid $grey-font;
 	.infoData {
@@ -155,6 +155,7 @@ header {
 		max-width: 1250px;
 		margin-left: 190px;
 		padding: 1.5em;
+		padding-top: calc(60px + 1.5em);
 		background-color: $grey-back;
 	// general statistic
 		.statistics {
@@ -168,19 +169,99 @@ header {
 			.dataStat {
 				border-top: 2px solid $grey-back;
 				border-bottom: 2px solid $grey-back;
+				padding: 2em;
 				.form-cal {
 					display: flex;
 					justify-content: center;
-					border: 2px solid $grey-font;
-					padding: .5em 0;
+					form {
+						display: inline-block;
+						border: 2px solid $grey-back;
+						padding: .5em;
+						#date-form::-webkit-calendar-picker-indicator {
+							background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+						}
+						#date-form::-webkit-inner-spin-button {
+							display: none;
+						}
+						#date-form {
+							border: none;
+							border-left: 2px solid $grey-back;
+							padding-left: 10px;
+						}
+						#date-form:first-child {
+							border: none;
+							background: none !important;
+						}
+					}
+					#date-refresh {
+							font-family: 'Glyphter';
+							color: #fff;
+							margin-left: 15px;
+							width: 40px;
+							height: 40px;
+							border-radius: 3px;
+							background-color: #f58220;
+							border: none;
+						}
 				}
-				.ui-datepicker{
-					background: blue;
-				}
-
 			}
 			.mainStat {
-				height: 10vh;  // TEMPORARY!!!!!!!!!!!!!!!!!!!!!
+				height: auto;
+				display: flex;
+				justify-content: space-around;
+				.flex {
+					display: flex;
+					justify-content: space-around;
+					flex-direction: column;
+					.flex-center {
+						justify-content: center;
+					}
+					.flex-row {
+						display: flex;
+						margin: 25px 0;
+						.flex-column {
+							display: flex;
+							width: 30vw;
+							justify-content: space-around;
+							flex-direction: column;
+							.flex-sp-b2 {
+								display: flex;
+								flex-direction: row;
+								justify-content: space-between;
+								width: 25vw; 
+								border-bottom: 2px solid $grey-back;
+								p {
+									margin-bottom: 2px;
+								}
+							}
+						}
+						.chart-box {
+							display: inline-flex;
+							padding: 0 20px;
+							margin-left: 3vw;
+							background-color: $grey-back;
+							align-items: center;
+							.chart-dot {
+								height: 15px;
+								width: 15px;
+								border-radius: 8px;
+								display: inline-block;
+								margin-right: 10px;
+								margin-top: -1px; // albo dostosować do rozmiaru font
+							}
+							.blue  {
+								background-color: blue;
+							}
+							.green {
+								background-color: green;
+							}
+							.orange {
+								background-color: orange;
+							}
+						}
+					}
+				}
+
 			}
 		}
 		.links {

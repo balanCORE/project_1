@@ -325,11 +325,12 @@ template {
 
 .navBar {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   background-color: #191919;
   width: 190px;
-  height: auto;
+  height: 100vh;
   color: #999999; }
   .navBar [class*="nav"] {
     padding: 0 1.5em; }
@@ -341,12 +342,6 @@ template {
         justify-content: space-between;
     -ms-flex-align: center;
         align-items: center; }
-    .navBar .navHeader .logo {
-      font-family: 'Lobster', cursive;
-      color: white;
-      font-size: 1.5em;
-      line-height: 2em;
-      width: 4em; }
     .navBar .navHeader .hamburger {
       position: relative; }
     .navBar .navHeader .hamburger:before {
@@ -401,8 +396,11 @@ template {
           color: #56819f; }
 
 header {
+  position: fixed;
+  background-color: #fff;
+  right: 0;
   height: 60px;
-  max-width: 1250px;
+  width: 100vw;
   margin-left: 190px;
   border-bottom: 1px solid #999999; }
   header .infoData {
@@ -435,6 +433,7 @@ main {
   max-width: 1250px;
   margin-left: 190px;
   padding: 1.5em;
+  padding-top: calc(60px + 1.5em);
   background-color: #f5f5f2; }
   main .statistics {
     background: #FFF; }
@@ -446,18 +445,97 @@ main {
         text-transform: uppercase; }
     main .statistics .dataStat {
       border-top: 2px solid #f5f5f2;
-      border-bottom: 2px solid #f5f5f2; }
+      border-bottom: 2px solid #f5f5f2;
+      padding: 2em; }
       main .statistics .dataStat .form-cal {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-pack: center;
-            justify-content: center;
-        border: 2px solid #999999;
-        padding: .5em 0; }
-      main .statistics .dataStat .ui-datepicker {
-        background: blue; }
+            justify-content: center; }
+        main .statistics .dataStat .form-cal form {
+          display: inline-block;
+          border: 2px solid #f5f5f2;
+          padding: .5em; }
+          main .statistics .dataStat .form-cal form #date-form::-webkit-calendar-picker-indicator {
+            background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat; }
+          main .statistics .dataStat .form-cal form #date-form::-webkit-inner-spin-button {
+            display: none; }
+          main .statistics .dataStat .form-cal form #date-form {
+            border: none;
+            border-left: 2px solid #f5f5f2;
+            padding-left: 10px; }
+          main .statistics .dataStat .form-cal form #date-form:first-child {
+            border: none;
+            background: none !important; }
+        main .statistics .dataStat .form-cal #date-refresh {
+          font-family: 'Glyphter';
+          color: #fff;
+          margin-left: 15px;
+          width: 40px;
+          height: 40px;
+          border-radius: 3px;
+          background-color: #f58220;
+          border: none; }
     main .statistics .mainStat {
-      height: 10vh; }
+      height: auto;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+      main .statistics .mainStat .flex {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+        main .statistics .mainStat .flex .flex-center {
+          -ms-flex-pack: center;
+              justify-content: center; }
+        main .statistics .mainStat .flex .flex-row {
+          display: -ms-flexbox;
+          display: flex;
+          margin: 25px 0; }
+          main .statistics .mainStat .flex .flex-row .flex-column {
+            display: -ms-flexbox;
+            display: flex;
+            width: 30vw;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
+            -ms-flex-direction: column;
+                flex-direction: column; }
+            main .statistics .mainStat .flex .flex-row .flex-column .flex-sp-b2 {
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+              -ms-flex-pack: justify;
+                  justify-content: space-between;
+              width: 25vw;
+              border-bottom: 2px solid #f5f5f2; }
+              main .statistics .mainStat .flex .flex-row .flex-column .flex-sp-b2 p {
+                margin-bottom: 2px; }
+          main .statistics .mainStat .flex .flex-row .chart-box {
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            padding: 0 20px;
+            margin-left: 3vw;
+            background-color: #f5f5f2;
+            -ms-flex-align: center;
+                align-items: center; }
+            main .statistics .mainStat .flex .flex-row .chart-box .chart-dot {
+              height: 15px;
+              width: 15px;
+              border-radius: 8px;
+              display: inline-block;
+              margin-right: 10px;
+              margin-top: -1px; }
+            main .statistics .mainStat .flex .flex-row .chart-box .blue {
+              background-color: blue; }
+            main .statistics .mainStat .flex .flex-row .chart-box .green {
+              background-color: green; }
+            main .statistics .mainStat .flex .flex-row .chart-box .orange {
+              background-color: orange; }
   main .links {
     margin-top: 1.5em;
     background: #FFF; }
